@@ -34,9 +34,9 @@ function setup() {
     ground = createSprite(width/2, height-220,width,10);
     ground.visible = false;
   
-    Background = createSprite(0, 0,width,10);
-    Background.addImage("Background", BackgroundImage);
-    Background.scale = 2
+    //Background = createSprite(0, 0,width,10);
+    //Background.addImage("Background", BackgroundImage);
+    //Background.scale = 2
   
     monkey = createSprite(50, height-220, 20,20);
     monkey.addAnimation("running", monkey_running);
@@ -52,7 +52,7 @@ function setup() {
 
 function draw() {
   
-  background("white");
+  background(BackgroundImage);
     
   //monkey collision with invisible ground
   monkey.collide(ground);
@@ -71,12 +71,11 @@ function draw() {
     monkey.velocityY = monkey.velocityY + 0.9;
     
     
-    if (Background.x < 0){
-      Background.x = Background.width/2;
-    }
+    if (ground.x < 0){
+      ground.x = ground.width/2;
     
     //Ground velocity
-    Background.velocityX = -(5 + 0.5 * score/3);
+   ground.velocityX = -(5 + 0.5 * score/3);
     
     //Score for each food 
     if (foodGroup.isTouching(monkey)){
@@ -100,7 +99,7 @@ function draw() {
   } else if(gameState === END){
     
     monkey.velocityY = 0;
-    Background.velocityX = 0;
+    //Background.velocityX = 0;
     
 
     //to stop all objects from disappearing 
