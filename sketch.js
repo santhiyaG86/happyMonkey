@@ -3,8 +3,8 @@ var banana , bananaImage, obstacle, obstacleImage;
 var Background, BackgroundImage;
 
 
-var monkeySound
-var gameoverSound
+var monkeySound;
+var gameoverSound;
 
 var FoodGroup, obstacleGroup;
 
@@ -16,7 +16,7 @@ var END = 0;
 var gameState = PLAY;
 
 function preload(){
-  monkey_running =            loadAnimation("sprite_0.png","sprite_1.png","sprite_2.png","sprite_3.png","sprite_4.png","sprite_5.png","sprite_6.png","sprite_7.png","sprite_8.png")
+  monkey_running = loadAnimation("sprite_0.png","sprite_1.png","sprite_2.png","sprite_3.png","sprite_4.png","sprite_5.png","sprite_6.png","sprite_7.png","sprite_8.png")
   
   bananaImage = loadImage("banana.png");
   obstacleImage = loadImage("obstacle.png");
@@ -59,28 +59,14 @@ function draw() {
   
   //If condition for gamestates
   
-   //score
-    stroke("white");
-    textSize = 20
-    fill("black");
-    text("Score: " + score ,500,50);
-  
+ 
   if (gameState === PLAY){
   //Jump command
     if (touches.length < 0 || keyDown("space") && monkey.y >= 210){
       monkey.velocityY = -12;
       touches = [];
-  }
+  }   
     
-    
-    //SurvivalTime
-    stroke("white");
-    textSize = 20;
-    fill("black");
-    text("SurvivalTime: " + survivalTime, 50, 50);
-    survivalTime = Math.round(frameCount/frameRate());
-    
-       
     //Monkey velocity
     monkey.velocityY = monkey.velocityY + 0.9;
     
@@ -116,18 +102,7 @@ function draw() {
     monkey.velocityY = 0;
     Background.velocityX = 0;
     
-    //score
-    stroke("white");
-    textSize = 20
-    fill("black");
-    text("Score: " + score ,500,50);
 
-    //SurvivalTime
-    stroke("white");
-    textSize = 20;
-    fill("black");
-    text("SurvivalTime: " + survivalTime, 50, 50);
-    
     //to stop all objects from disappearing 
     obstacleGroup.setLifetimeEach(-1);
     foodGroup.setLifetimeEach(-1);
@@ -139,6 +114,18 @@ function draw() {
   
   //Drawing sprites
   drawSprites();
+    //score
+    stroke("white");
+    textSize = 20
+    fill("black");
+    text("Score: " + score ,500,50);
+  
+   //SurvivalTime
+    stroke("white");
+    textSize = 20;
+    fill("black");
+    text("SurvivalTime: " + survivalTime, 50, 50);
+    
 }
 
 function food(){
