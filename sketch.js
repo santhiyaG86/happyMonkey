@@ -38,7 +38,7 @@ function setup() {
     //Background.addImage("Background", BackgroundImage);
     //Background.scale = 2
   
-    monkey = createSprite(50, height-220, 20,20);
+    monkey = createSprite(50, height-160, 20,20);
     monkey.addAnimation("running", monkey_running);
     monkey.scale = 0.4/3;
     
