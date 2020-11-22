@@ -31,7 +31,7 @@ function preload(){
 function setup() {
   createCanvas(windowWidth,windowHeight);
   
-    ground = createSprite(width-50, height-220,1250,10);
+    ground = createSprite(width/2, height-220,width,10);
     ground.visible = false;
   
     Background = createSprite(100, height-420,1250,10);
